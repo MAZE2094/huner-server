@@ -42,7 +42,7 @@ inputs:
   release_version:
     description: Version for the release. If not provided, Deta Space will generate a version by default.
     required: false
-ubuntu-latest
+on ubuntu-latest
 runs:
   using: composite
 
