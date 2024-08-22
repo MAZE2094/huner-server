@@ -1,28 +1,30 @@
-name: Deta Space Deployment Github Action
-description: Github Action for deploying Deta Space apps.
+on:
+  workflow_dispatch:
+     name: Deta Space Deployment Github Action
+     description: Github Action for deploying Deta Space apps.
 
-branding:
-  icon: upload-cloud
-  color: purple
+     branding:
+       icon: upload-cloud
+       color: purple
 
-inputs:
-  access_token:
-    description: Deta access token for Deta Space CLI authentication.
-    required: true
+     inputs:
+       access_token:
+         description: Deta access token for Deta Space CLI authentication.
+         required: true
 
-  project_id:
-    description: Deta Space app project ID.
-    required: true
+     project_id:
+       description: Deta Space app project ID.
+       required: true
 
-  project_directory:
-    description: Directory of the Deta Space project.
-    required: false
-    default: "."
+     project_directory:
+       description: Directory of the Deta Space project.
+       required: false
+       default: "."
 
-  space_push:
-    description: Whether to do space push. Valid value is "true". Space push will not be performed by default.
-    required: false
-    default: false
+     space_push:
+       description: Whether to do space push. Valid value is "true". Space push will not be performed by default.
+       required: false
+       default: false
 
   experimental:
     description: Whether to use the experimental runner version for space push. Valid value is "true".
@@ -42,11 +44,11 @@ inputs:
   release_version:
     description: Version for the release. If not provided, Deta Space will generate a version by default.
     required: false
-on ubuntu-latest
-runs:
-  using: composite
+runs-on: ubuntu-latest
+  runs:
+    using: composite
 
-  steps:
+   steps:
     - name: Install Deta Space CLI & set SPACE_ACCESS_TOKEN environment variable
       shell: bash
       run: |
