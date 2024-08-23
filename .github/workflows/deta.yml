@@ -17,7 +17,7 @@ jobs:
     - name: Deploy
       uses: lizheming/deta-action@master
       with:
-        access_token: ${{ secrets.space_access_token }}
+        access_token: ${{ secrets.DETA_TOKEN }}
         id: ${{ secrets.space_id }}
         version: "1.0.0"
         notes: "Release automatically with GitHub deta action"
